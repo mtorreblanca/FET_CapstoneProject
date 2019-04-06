@@ -1,0 +1,25 @@
+<header>
+  <div class="content">
+    <nav class="nav nav-primary">
+      <ul>
+        <!-- rubric65 User shall see a link to the home page -->
+        <!-- rubric69 Clicking the home page link should take the user to the home page -->
+        <li><a class="btn" [routerLink]="['/']" routerLinkActive="active">Cloud Mall Supermarket</a></li>
+         <!-- rubric66 User shall see a link to the shopping page -->
+        <!-- rubric 70 Clicking the shopping page link should take the user to the shopping page -->
+        <li><a [routerLink]="['/shopping']" routerLinkActive="active">Shopping</a></li>
+
+        <!-- rubric67 User shall see a link to the cart page -->
+        <!-- rubric71 Clicking the cart page link should take the user to the cart page -->
+        <li><a [routerLink]="['/cart']" routerLinkActive="active">Cart
+            <i class="fas fa-shopping-cart"></i>
+            </a>
+        </li>
+
+      </ul>
+    </nav>
+
+
+
+  </div>
+</header>

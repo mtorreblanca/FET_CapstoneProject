@@ -1,0 +1,29 @@
+.content{
+    background: linear-gradient(to right bottom,rgb(245, 171, 152), #E7717D );
+    padding: 2em;
+}
+
+
+
+/*Header*/
+.header-primary {
+    background: #9B8579;
+  text-align: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  }
+
+  
+  /*Navigation*/
+  nav {
+  }
+  .nav > ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+  }
+  
+  .nav-primary > li {
+    display: inline-block;
+}
+
