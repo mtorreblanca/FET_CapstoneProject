@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit {
     this.showSlides(this.slideIndex = n, false);
   }
 
-  showSlides(n, fromCheck) {
+  showSlides(n, fromCheckBox) {
     let i;
     const slides = document.getElementsByClassName('mySlides') as HTMLCollectionOf<HTMLElement>;
     const dots = document.getElementsByClassName('dot');
@@ -40,14 +40,14 @@ export class HomePageComponent implements OnInit {
     dots[this.slideIndex - 1].className += ' active';
 
     if (this.automatic === true) {
-      if (fromCheck === true) {
+      if (fromCheckBox === true) {
         setTimeout(() => {
           this.automatic === true ? this.slideIndex++ : this.slideIndex = this.slideIndex;
           this.showSlides(this.slideIndex, true);
         }, 3000);
       } else {
         setTimeout(() => {
-          fromCheck = true;
+          fromCheckBox = true;
         }, 3000);
       }
     }
