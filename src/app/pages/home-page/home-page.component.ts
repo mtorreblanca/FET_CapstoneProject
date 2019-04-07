@@ -12,18 +12,18 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.showSlides(this.slideIndex);
+    this.showSlides(this.slideIndex, false);
   }
 
   plusSlides(n) {
-    this.showSlides(this.slideIndex += n);
+    this.showSlides(this.slideIndex += n, false);
   }
 
   currentSlide(n) {
-    this.showSlides(this.slideIndex = n);
+    this.showSlides(this.slideIndex = n, false);
   }
 
-  showSlides(n) {
+  showSlides(n, fromCheck) {
     let i;
     const slides = document.getElementsByClassName('mySlides') as HTMLCollectionOf<HTMLElement>;
     const dots = document.getElementsByClassName('dot');
@@ -40,10 +40,16 @@ export class HomePageComponent implements OnInit {
     dots[this.slideIndex - 1].className += ' active';
 
     if (this.automatic === true) {
-      this.slideIndex++;
-      setTimeout(() => {
-        this.showSlides(this.slideIndex);
-      }, 3000);
+      if (fromCheck === true) {
+        setTimeout(() => {
+          this.automatic === true ? this.slideIndex++ : this.slideIndex = this.slideIndex;
+          this.showSlides(this.slideIndex, true);
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          fromCheck = true;
+        }, 3000);
+      }
     }
 
   }
