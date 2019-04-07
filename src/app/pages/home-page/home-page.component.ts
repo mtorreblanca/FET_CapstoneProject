@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent implements OnInit {
 
   slideIndex = 1;
-
+  automatic = false;
   constructor() { }
 
   ngOnInit() {
@@ -17,7 +17,6 @@ export class HomePageComponent implements OnInit {
 
   plusSlides(n) {
     this.showSlides(this.slideIndex += n);
-    console.log(this.slideIndex);
   }
 
   currentSlide(n) {
@@ -29,8 +28,8 @@ export class HomePageComponent implements OnInit {
     const slides = document.getElementsByClassName('mySlides') as HTMLCollectionOf<HTMLElement>;
     const dots = document.getElementsByClassName('dot');
 
+    if (n > slides.length) { this.slideIndex = 1; }
     if (n < 1) { this.slideIndex = slides.length; }
-    if (n > 3) { this.slideIndex = 1; }
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = 'none';
     }
@@ -39,5 +38,16 @@ export class HomePageComponent implements OnInit {
     }
     slides[this.slideIndex - 1].style.display = 'block';
     dots[this.slideIndex - 1].className += ' active';
+
+    if (this.automatic === true) {
+      this.slideIndex++;
+      setTimeout(() => {
+        this.showSlides(this.slideIndex);
+      }, 3000);
+    }
+
   }
+
+
+
 }
