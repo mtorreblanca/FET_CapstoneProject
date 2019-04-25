@@ -3,7 +3,8 @@
     <h1>Welcome to Cloud Mall Supermarket</h1>
     <p class="lead">See the featured content below and go direct to shopping!</p>
   </div>  
-  <input type="checkbox" [(ngModel)]="automatic" (change)="showSlides(slideIndex, true)" >
+
+    Toggle Slide Show<input type="checkbox" [(ngModel)]="automatic" (change)="showSlides(slideIndex, true)" > 
   <div class="slideshow-container">
 
     <div class="mySlides fade">
@@ -32,5 +33,7 @@
       <span class="dot" (click)="currentSlide(2)"></span> 
       <span class="dot" (click)="currentSlide(3)"></span> 
     </div>
-
+    <button>
+      <a [routerLink]="['/shopping']" routerLinkActive="active">Shop All</a>
+    </button>
 </div>

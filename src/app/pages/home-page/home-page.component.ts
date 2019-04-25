@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingDataService } from 'src/app/services/shopping-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -9,10 +11,23 @@ export class HomePageComponent implements OnInit {
 
   slideIndex = 1;
   automatic = false;
-  constructor() { }
+  items$: any;
+  itemsSlide1: any;
+  itemsSlide2: any;
+  itemsSlide3: any;
+  constructor(private data: ShoppingDataService) { }
 
   ngOnInit() {
     this.showSlides(this.slideIndex, false);
+    this.data.getItems()
+      .subscribe(items => {
+        this.items$ = items;
+        console.log(this.items$);
+        this.itemsSlide1 = items[0].subcategories[3].items;
+        console.log(this.itemsSlide1);
+        this.itemsSlide2 = items.find(t => t.subcategories[0].items[0].name === 'Bib');
+        console.log(this.itemsSlide2);
+      });
   }
 
   plusSlides(n) {
