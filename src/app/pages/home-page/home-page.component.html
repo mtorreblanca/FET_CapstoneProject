@@ -1,39 +1,49 @@
 <div class="container">
+  <!-- rubric04 The user should see some text welcoming them to the website -->
   <div class="jumbotron">
     <h1>Welcome to Cloud Mall Supermarket</h1>
     <p class="lead">See the featured content below and go direct to shopping!</p>
-  </div>  
-
-    Toggle Slide Show<input type="checkbox" [(ngModel)]="automatic" (change)="showSlides(slideIndex, true)" > 
+  </div>
+  <!-- rubric06 The user should see a toggle switch labeled “Toggle Slide Show” -->
+  <!-- rubric10 If the “Toggle Slide Show” switch is checked, the product carousel should automatically move forward one slide every 3 seconds -->
+  Toggle Slide Show<input type="checkbox" [(ngModel)]="automatic" (change)="showSlides(slideIndex, true)">
   <div class="slideshow-container">
 
+    <!-- rubric11 Whenevertheproductcarouselchangesitslide,it should do in an animated way -->
     <div class="mySlides fade-animation">
       <div class="numbertext">1 / 3</div>
       <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
     </div>
-    
+
     <div class="mySlides fade-animation">
       <div class="numbertext">2 / 3</div>
       <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
     </div>
-    
+
     <div class="mySlides fade-animation">
       <div class="numbertext">3 / 3</div>
       <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
     </div>
-    
+
+    <!-- rubric02 The user should see a button that resembles a left arrow key to the left of the product carousel -->
+    <!-- rubric08 Clicking on the left arrow should move the product carousel one slide back -->
     <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+    <!-- rubric03 The user should see a button that resembles a right arrow key to the right of the product carousel -->
+    <!-- rubric07 Clicking on the right arrow should move the product carousel one slide forward. -->
     <a class="next" (click)="plusSlides(1)">&#10095;</a>
-    
-    </div>
-    <br>
-    
-    <div style="text-align:center">
-      <span class="dot" (click)="currentSlide(1)"></span> 
-      <span class="dot" (click)="currentSlide(2)"></span> 
-      <span class="dot" (click)="currentSlide(3)"></span> 
-    </div>
-    <button>
-      <a [routerLink]="['/shopping']" routerLinkActive="active">Shop All</a>
-    </button>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" (click)="currentSlide(1)"></span>
+    <span class="dot" (click)="currentSlide(2)"></span>
+    <span class="dot" (click)="currentSlide(3)"></span>
+  </div>
+
+  <!-- rubric05 The user should see a button labeled “Shop All” -->
+  <button>
+  <!-- rubric 12 If the user clicks on the “Shop All” button, the user should be taken to the shopping page -->
+    <a [routerLink]="['/shopping']" routerLinkActive="active">Shop All</a>
+  </button>
 </div>
