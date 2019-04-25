@@ -38,11 +38,11 @@ Layout Styles
   clear: both;
 }
 /* Media Query excludes extra small devices and includes small and above */
-[class*="col-"] {
+/* [class*="col-"] {
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
-}
+} */
 
 @media (min-width: 48em) {
   [class*="col-"] {

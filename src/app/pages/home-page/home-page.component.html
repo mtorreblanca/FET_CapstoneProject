@@ -9,20 +9,76 @@
   Toggle Slide Show<input type="checkbox" [(ngModel)]="automatic" (change)="showSlides(slideIndex, true)">
   <div class="slideshow-container">
 
-    <!-- rubric11 Whenevertheproductcarouselchangesitslide,it should do in an animated way -->
+    <!-- rubric11 Whenever the product carousel changes slide, it should do in an animated way -->
     <div class="mySlides fade-animation">
       <div class="numbertext">1 / 3</div>
-      <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
+      <div class="row slide-1">
+        <div class="col-6">
+          <a [routerLink]="['/product/Apricot']">
+            <img src="https://webmppcapstone.blob.core.windows.net/fruitsimages/apricot.jpg" class="vcenter">
+          </a>
+        </div>
+        <div class="col-6">
+          <a [routerLink]="['/product/Avocado']">
+            <img src="https://webmppcapstone.blob.core.windows.net/fruitsimages/avocado.jpg">
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="mySlides fade-animation">
       <div class="numbertext">2 / 3</div>
-      <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
+      <div class="row slide-2">
+        <div class="col-sm">
+            <a [routerLink]="['/product/Beauty Soap Bar']">
+              <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/soap.png " class="vcenter">
+            </a>
+        </div>
+        <div class="col-sm">
+          <div class="col-12">
+              <a [routerLink]="['/product/Laundry Detergent']">
+                <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/detergent.png">
+              </a>
+          </div>
+          <div class="col-12">
+              <a [routerLink]="['/product/Apple Juice']">
+                <img src="https://webmppcapstone.blob.core.windows.net/beverages-royaltyfree/applejuice.png">
+              </a>
+            </div>
+        </div>
+      </div>
     </div>
 
     <div class="mySlides fade-animation">
       <div class="numbertext">3 / 3</div>
-      <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+      <div class="container slide-3">
+        <div class="row">
+          <div class="col-sm">
+            <!-- drugstroe badge -->
+            <a [routerLink]="['/product/Bandage']">
+              <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/bandage.png">
+            </a>
+          </div>
+          <div class="col-sm">
+              <a [routerLink]="['/product/100 Piece First Aid Kit']">
+                <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/firstaidkit.png">
+              </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+              <a [routerLink]="['/product/Cold Relief Caplets']">
+                <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/coldpills.png">
+              </a>
+          </div>
+          <div class="col-sm">
+              <a [routerLink]="['/product/Air Freshener, Powder Fresh, 8 oz']">
+                <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/airfreshner.png">
+              </a>
+          </div>
+        </div>
+      </div>
+      <!-- <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%"> -->
     </div>
 
     <!-- rubric02 The user should see a button that resembles a left arrow key to the left of the product carousel -->
@@ -43,7 +99,7 @@
 
   <!-- rubric05 The user should see a button labeled “Shop All” -->
   <button>
-  <!-- rubric 12 If the user clicks on the “Shop All” button, the user should be taken to the shopping page -->
+    <!-- rubric 12 If the user clicks on the “Shop All” button, the user should be taken to the shopping page -->
     <a [routerLink]="['/shopping']" routerLinkActive="active">Shop All</a>
   </button>
 </div>
