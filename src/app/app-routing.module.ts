@@ -13,7 +13,9 @@ const routes: Routes = [
   { path: '', component: HomePageComponent},
   //  rubric34 The home page is accessible at http://localhost:8080/#/shopping
   { path: 'shopping', component: ShoppingPageComponent },
+  // rubric46 The product page is accessible at http://localhost:8080/#/product?name=productname
   { path: 'product/:id', component: ProductPageComponent },
+  // rubric56 The cart page is accessible at http://localhost:8080/#/cart
   { path: 'cart', component: CartPageComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'contact', component: ContactUsComponent }

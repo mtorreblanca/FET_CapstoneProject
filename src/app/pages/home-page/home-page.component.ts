@@ -11,34 +11,11 @@ export class HomePageComponent implements OnInit {
 
   slideIndex = 1;
   automatic = false;
-  items$: any;
-  itemsSlide1: any;
-  itemsSlide2: any;
-  itemsSlide3: any;
 
-  testfind: any;
-  resultFind: any;
-  itemFound: any;
   constructor(private data: ShoppingDataService) { }
 
   ngOnInit() {
     this.showSlides(this.slideIndex, false);
-    this.data.getItems()
-      .subscribe(items => {
-        this.items$ = items;
-        this.testfind = items[0].subcategories[0].items;
-        this.resultFind = this.testfind.find(t => t.name === 'Bib');
-        console.log(this.resultFind);
-        items.forEach( res => {
-          res.subcategories.forEach( res1 => {
-            const find = res1.items.find(t => t.name === 'Avocado');
-            if (find) {
-              this.itemFound = find;
-              console.log(this.itemFound);
-            }
-          });
-        });
-      });
   }
 
   plusSlides(n) {

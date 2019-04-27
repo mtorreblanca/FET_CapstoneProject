@@ -1,3 +1,41 @@
-<p>
-  product-page works!
-</p>
+<div class="container">
+  <!-- rubric43 The user should see a button labeled “Back” -->
+  <!-- rubric45 Clicking the “Back” button should take the user back to where they came from, whether it was the Shopping page or the Product Page. -->
+  <button (click)="goBack()">Back</button>
+  <div class="row">
+    <div class="col-sm">
+      <!-- rubric 36 The user should an image of the selected product -->
+      <img src={{itemFound.imagelink}} alt="Product Image">
+    </div>
+    <div class="col-sm">
+      <div class="col-12">
+        <!-- rubric35 The user should the name of the selected product -->
+        {{itemFound.name}}
+      </div>
+      <div class="col-12">
+        <!-- rubric37 The user should see the rating of the selected product -->
+        Rating: {{itemFound.rating}}/5
+      </div>
+      <div class="col-12">
+        <!-- rubric39 THe user should see the price of the selected product -->
+        {{itemFound.price}}
+      </div>
+      <div class="col-12">
+        <!-- rubric40 The user should see a description of the selected product -->
+        {{itemFound.description}}
+      </div>
+      <!-- rubric38 The user should see the number of items in stock of the selected product -->
+      <div class="col-12">
+        {{itemFound.stock}}
+      </div>
+      <div class="col-12">
+        <!-- rubric42 The user should see an input field labeled “Qty” -->
+        Quantity <input type="number" min="0" max="{{itemFound.stock}}" [(ngModel)]="quantity">
+      </div>
+      <div class="col-12">
+        <!-- rubric41 The user should see a button labeled “Add” -->
+        <button (click)="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

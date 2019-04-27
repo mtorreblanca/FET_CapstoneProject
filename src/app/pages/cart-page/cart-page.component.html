@@ -1,3 +1,42 @@
-<p>
-  cart-page works!
-</p>
+<!-- <p>
+  {{cartItems | json}}
+</p> -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Name</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+        <!-- rubric47 The user should a table displaying the product image, name, unit price, quantity as an input field,
+        total cost, and a remove button for each product in the shopping cart. -->
+        <tr *ngFor='let item of cartItems; let i = index'>
+          <td><img src="{{item.imagelink}}" alt="item picture"></td>
+          <td>{{item.name}}</td>
+          <!-- rubric55 The cost column in the table should update if the quantity input field is changed -->
+          <td>{{item.price}}</td>
+          <td><input type="number" min="0" [value]="item.quantity" name="quantity"
+              (input)="updateQuantity($event.target.value, i)"></td>
+          <td>$ {{item.quantity*item.price | number : '1.2-2'}}</td>
+          <!-- rubric54 The remove button should remove an item from the shopping cart -->
+          <td><button (click)="removeItem(i)">Remove</button></td>
+        </tr>
+      </table>
+      <div *ngIf="cartItems.length === 0">
+        You dont have anything in your cart yet!
+      </div>
+      <p>Subtotal: {{subtotal | number : '1.2-2'}}</p>
+    </div>
+    <div class="col-sm">
+      <h3>Cart Summary</h3>
+      <p>Subtotal: {{subtotal | number : '1.2-2'}}</p>
+      
+
+    </div>
+  </div>
+</div>

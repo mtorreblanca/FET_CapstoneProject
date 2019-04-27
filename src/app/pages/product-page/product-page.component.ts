@@ -11,6 +11,9 @@ import { ShoppingDataService } from 'src/app/services/shopping-data.service';
 export class ProductPageComponent implements OnInit {
   items$: any;
   itemFound: any;
+
+  newCartItem: any;
+  quantity: any;
   constructor(private route: ActivatedRoute,
               private data: ShoppingDataService,
               private location: Location
@@ -38,6 +41,21 @@ export class ProductPageComponent implements OnInit {
           });
         });
       });
+  }
+
+  goBack() {
+    this.location.back();
+  }
+
+  addToCart() {
+    this.newCartItem = {
+      name: this.itemFound.name,
+      details: this.itemFound.description,
+      price: this.itemFound.price,
+      quantity: this.quantity,
+      imagelink: this.itemFound.imagelink
+    };
+    this.data.addItem(this.newCartItem);
   }
 
 }
