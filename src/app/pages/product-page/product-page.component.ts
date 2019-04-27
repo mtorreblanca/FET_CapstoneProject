@@ -10,6 +10,7 @@ import { ShoppingDataService } from 'src/app/services/shopping-data.service';
 })
 export class ProductPageComponent implements OnInit {
   items$: any;
+  itemFound: any;
   constructor(private route: ActivatedRoute,
               private data: ShoppingDataService,
               private location: Location
@@ -26,7 +27,16 @@ export class ProductPageComponent implements OnInit {
     this.data.getItems()
       .subscribe(items => {
         this.items$ = items;
-        console.log(this.items$);
+        items.forEach( res => {
+          res.subcategories.forEach( res1 => {
+            const find = res1.items.find(t => t.name === id);
+            if (find) {
+              this.itemFound = find;
+              console.log(this.itemFound);
+              console.log(this.itemFound.name);
+            }
+          });
+        });
       });
   }
 

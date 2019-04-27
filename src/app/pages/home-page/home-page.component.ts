@@ -15,6 +15,10 @@ export class HomePageComponent implements OnInit {
   itemsSlide1: any;
   itemsSlide2: any;
   itemsSlide3: any;
+
+  testfind: any;
+  resultFind: any;
+  itemFound: any;
   constructor(private data: ShoppingDataService) { }
 
   ngOnInit() {
@@ -22,11 +26,18 @@ export class HomePageComponent implements OnInit {
     this.data.getItems()
       .subscribe(items => {
         this.items$ = items;
-        console.log(this.items$);
-        this.itemsSlide1 = items[0].subcategories[3].items;
-        console.log(this.itemsSlide1);
-        this.itemsSlide2 = items.find(t => t.subcategories[0].items[0].name === 'Bib');
-        console.log(this.itemsSlide2);
+        this.testfind = items[0].subcategories[0].items;
+        this.resultFind = this.testfind.find(t => t.name === 'Bib');
+        console.log(this.resultFind);
+        items.forEach( res => {
+          res.subcategories.forEach( res1 => {
+            const find = res1.items.find(t => t.name === 'Avocado');
+            if (find) {
+              this.itemFound = find;
+              console.log(this.itemFound);
+            }
+          });
+        });
       });
   }
 

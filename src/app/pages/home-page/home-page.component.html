@@ -8,7 +8,8 @@
   <!-- rubric10 If the “Toggle Slide Show” switch is checked, the product carousel should automatically move forward one slide every 3 seconds -->
   Toggle Slide Show<input type="checkbox" [(ngModel)]="automatic" (change)="showSlides(slideIndex, true)">
   <div class="slideshow-container">
-
+    
+    <!-- rubric01 The user should see a product carousel that contains at least 3 slides of products, with each slide having between 1 and 4 product images. -->
     <!-- rubric11 Whenever the product carousel changes slide, it should do in an animated way -->
     <div class="mySlides fade-animation">
       <div class="numbertext">1 / 3</div>
@@ -30,21 +31,21 @@
       <div class="numbertext">2 / 3</div>
       <div class="row slide-2">
         <div class="col-sm">
-            <a [routerLink]="['/product/Beauty Soap Bar']">
-              <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/soap.png " class="vcenter">
-            </a>
+          <a [routerLink]="['/product/Beauty Soap Bar']">
+            <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/soap.png " class="vcenter">
+          </a>
         </div>
         <div class="col-sm">
           <div class="col-12">
-              <a [routerLink]="['/product/Laundry Detergent']">
-                <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/detergent.png">
-              </a>
+            <a [routerLink]="['/product/Laundry Detergent']">
+              <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/detergent.png">
+            </a>
           </div>
           <div class="col-12">
-              <a [routerLink]="['/product/Apple Juice']">
-                <img src="https://webmppcapstone.blob.core.windows.net/beverages-royaltyfree/applejuice.png">
-              </a>
-            </div>
+            <a [routerLink]="['/product/Apple Juice']">
+              <img src="https://webmppcapstone.blob.core.windows.net/beverages-royaltyfree/applejuice.png">
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -60,21 +61,21 @@
             </a>
           </div>
           <div class="col-sm">
-              <a [routerLink]="['/product/100 Piece First Aid Kit']">
-                <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/firstaidkit.png">
-              </a>
+            <a [routerLink]="['/product/100 Piece First Aid Kit']">
+              <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/firstaidkit.png">
+            </a>
           </div>
         </div>
         <div class="row">
           <div class="col-sm">
-              <a [routerLink]="['/product/Cold Relief Caplets']">
-                <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/coldpills.png">
-              </a>
+            <a [routerLink]="['/product/Cold Relief Caplets']">
+              <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/coldpills.png">
+            </a>
           </div>
           <div class="col-sm">
-              <a [routerLink]="['/product/Air Freshener, Powder Fresh, 8 oz']">
-                <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/airfreshner.png">
-              </a>
+            <a [routerLink]="['/product/Air Freshener']">
+              <img src="https://webmppcapstone.blob.core.windows.net/house-royaltyfree/airfreshner.png">
+            </a>
           </div>
         </div>
       </div>
