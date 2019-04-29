@@ -1,3 +1,53 @@
-<p>
-  contact-us works!
-</p>
+<div class="row">
+  <div class="col">
+    <!-- rubric57 The user should see a form with text input fields for name and email, a dropdown list for subject, and a text area for a message. These fields should have placeholders to show what they represent -->
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="main-form needs-validation"
+      [class.was-validated]="!formValid">
+      <h2>Contact</h2>
+
+      <!-- Name -->
+
+      <div class="form-group">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter your Name" ngModel required>
+        <!-- rubric61 The form should show validation errors if the form isn’t filled out correctly and the send button is pressed -->
+        <div class="invalid-feedback">Need your a name!!</div>
+        <div class="valid-feedback">Thanks!</div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <input type="email" name="address" id="address" class="form-control" placeholder="Enter your email" ngModel
+          required>
+        <div class="invalid-feedback">Invalid email address</div>
+        <div class="valid-feedback">Great!</div>
+      </div>
+
+      <!-- Subject -->
+      <div class="form-group">
+        <select name="subject" class="form-control" placeholder="Subject" ngModel required>
+          <option value="" disabled selected>Subject</option>
+          <option value="Advice">Advice</option>
+          <option value="Shipping">Shipping</option>
+          <option value="cartRevision">Cart Errors</option>
+        </select>
+      </div>
+      <!-- Message -->
+      <div class="form-group">
+        <textarea name="message" ngModel placeholder="What is your message?" class="form-control" rows="5" cols="50"
+          required>
+
+        </textarea>
+        <div class="invalid-feedback">Please enter message</div>
+        <div class="valid-feedback">Excellent!</div>
+      </div>
+      <!-- rubric59 The user should see a button labeled “Send” -->
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <div class="col">
+    <!-- rubric58 The user should see description that shows an email and phone number for the contacting the business -->
+    <h3>Have questions? Contact us!</h3>
+    <h4>Email: contact@cloudsupermarket.com</h4>
+    <h4>Phone: 123-456-7890</h4>
+  </div>
+</div>
