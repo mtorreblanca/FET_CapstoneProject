@@ -47,6 +47,7 @@ export class ProductPageComponent implements OnInit {
     this.location.back();
   }
 
+  // rubric44 Clicking the “Add” button should add the number of units specified in the “Qty”
   addToCart() {
     this.newCartItem = {
       name: this.itemFound.name,

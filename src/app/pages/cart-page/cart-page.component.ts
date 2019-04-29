@@ -10,6 +10,9 @@ export class CartPageComponent implements OnInit {
 
   cartItems: any;
   subtotal: any;
+  formValid: any = true;
+  totalCost: number;
+
   constructor(private data: ShoppingDataService) { }
 
   ngOnInit() {
@@ -34,6 +37,21 @@ export class CartPageComponent implements OnInit {
     this.cartItems.forEach(item => {
       this.subtotal = this.subtotal + item.price * item.quantity;
     });
+  }
+
+  onSubmit(form) {
+    this.formValid = form.valid;
+    this.totalCost = this.subtotal * .08 + 5.99;
+    console.log(this.totalCost);
+    if (form.valid) {
+      // rubric51 The checkout button should create an alert based on the users shipping details and total cost.
+      alert('Shipping Details:\n' + form.value.firstname
+        + '\n' + form.value.lastname
+        + '\n' + form.value.address
+        + '\n' + form.value.city
+        + '\n' + form.value.phone
+        + '\nTotal Cost: $' + this.totalCost);
+    }
   }
 
 }

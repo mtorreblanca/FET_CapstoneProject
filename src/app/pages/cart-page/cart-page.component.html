@@ -1,7 +1,7 @@
 <!-- <p>
   {{cartItems | json}}
 </p> -->
-<div class="container">
+<div class="container" *ngIf="cartItems.length !== 0; else message">
   <div class="row">
     <div class="col-sm">
       <table>
@@ -27,16 +27,74 @@
           <td><button (click)="removeItem(i)">Remove</button></td>
         </tr>
       </table>
-      <div *ngIf="cartItems.length === 0">
-        You dont have anything in your cart yet!
-      </div>
       <p>Subtotal: {{subtotal | number : '1.2-2'}}</p>
     </div>
     <div class="col-sm">
-      <h3>Cart Summary</h3>
-      <p>Subtotal: {{subtotal | number : '1.2-2'}}</p>
-      
 
+
+
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="main-form needs-validation"
+        [class.was-validated]="!formValid">
+        <h3>Cart Summary</h3>
+
+
+        <!-- rubric48  -->
+        <h4>Enter Shipping Details</h4>
+
+        <!-- Name -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Firstname" ngModel
+                required>
+              <!-- rubric52 The form should show validation errors if the form isn’t filled out correctly and the checkout button is pressed -->
+              <div class="invalid-feedback">Need your First Name!</div>
+              <div class="valid-feedback">Hey that looks better now</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Lastname" ngModel
+                required>
+              <div class="invalid-feedback">Need your Last Name!</div>
+              <div class="valid-feedback">Wow are you serious?! Mine too!</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+          <input type="text" name="address" id="address" class="form-control" placeholder="Enter your Address" ngModel
+            required>
+          <div class="invalid-feedback">Please enter a valid address</div>
+          <div class="valid-feedback">Interesting place you know?</div>
+        </div>
+        <!-- City -->
+        <div class="form-group">
+          <input type="text" name="city" id="city" class="form-control" placeholder="Enter your City" ngModel required>
+          <div class="invalid-feedback">Please enter your city</div>
+          <div class="valid-feedback">Wow! Next to mine!</div>
+        </div>
+        <!-- Phone -->
+        <div class="form-group">
+          <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number Format: 123-456-7890"
+            ngModel pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+          <div class="invalid-feedback">Please enter your phone format: 123-456-7890</div>
+          <div class="valid-feedback">I wont call you for anything else</div>
+        </div>
+        <!-- rubric49 -->
+        <!-- rubric53 The cost details section should update -->
+        <p>Subtotal: ${{subtotal | number : '1.2-2'}}</p>
+        <p>Shipping Cost: $5.99 to all the states!</p>
+        <p>Tax: ${{subtotal * .08 | number : '1.2-2'}}</p>
+        <p>Total: ${{subtotal * .08 + 5.99 | number : '1.2-2'}}</p>
+        <!-- rubric50 The user should see a checkout button -->
+        <button type="submit">Checkout!</button>
+      </form>
     </div>
   </div>
 </div>
+
+<ng-template #message>
+  <h1>You haven't added something to your cart!</h1>
+</ng-template>
