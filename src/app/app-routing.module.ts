@@ -10,14 +10,16 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 const routes: Routes = [
 
   //  rubric13 The home page is accessible at http://localhost:8080/#
-  { path: '', component: HomePageComponent},
+  { path: '', component: HomePageComponent },
   //  rubric34 The home page is accessible at http://localhost:8080/#/shopping
   { path: 'shopping', component: ShoppingPageComponent },
   // rubric46 The product page is accessible at http://localhost:8080/#/product?name=productname
   { path: 'product/:id', component: ProductPageComponent },
   // rubric56 The cart page is accessible at http://localhost:8080/#/cart
   { path: 'cart', component: CartPageComponent },
+  // rubric64 The about page is accessible at http://localhost:8080/#/about
   { path: 'about', component: AboutUsComponent },
+  // rubric62 The contact page is accessible at http://localhost:8080/#/contact
   { path: 'contact', component: ContactUsComponent }
 ];
 
