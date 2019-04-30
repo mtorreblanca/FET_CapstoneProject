@@ -1,0 +1,26 @@
+.shopping-main{
+    min-height: 80%;
+    height: 100%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0 auto;
+    padding: auto;
+}
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: blue;
+    font-weight: bold;
+}
+
+img{
+    width: 50%;
+}
+
+a{
+    color: black;
+}

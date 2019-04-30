@@ -1,44 +1,179 @@
-<form>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault01">First name</label>
-        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault02">Last name</label>
-        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend2">@</span>
-          </div>
-          <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+<div class="container shopping-main">
+    <div class="row">
+        <!-- rubric14 The user shall see a controls bar -->
+        <div class="col-2">
+            <!-- rubric15 The user shall see a section in the controls bar that displays the selected category name -->
+            <!-- rubric27 Clicking on a subcategory should change the name of the selected category in the controls bar -->
+            Showing {{itemsTotal}} items in {{itemCategory}}
         </div>
-      </div>
+        <div class="col-3">
+            <input type="checkbox" (change)="onStock()" id="onStock" [(ngModel)]="forStock">
+            <label for="onStock">Only on Stock</label>
+        </div>
     </div>
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label for="validationDefault03">City</label>
-        <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="validationDefault04">State</label>
-        <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="validationDefault05">Zip</label>
-        <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
-      </div>
+    <div class="row">
+        <div class="col-4">
+            <!-- rubric25 Clicking on a category name in the category menu should toggle a dropdown of the available
+                subcategories within that category -->
+            <div id="accordion">
+                <!-- rubric19 The user shall see a category menu that displays all of the available shopping categories -->
+                <!-- House and Beauty -->
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#householdAndBeauty"
+                        aria-expanded="true" aria-controls="householdAndBeauty">
+                        Household and Beauty
+                    </button>
+                </h5>
+
+
+                <div id="householdAndBeauty" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <button (click)="getItems('Baby Care')">
+                                    Baby Care
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Drug Store')">
+                                    Drug Store
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Health and Personal Care')">
+                                    Health and Personal Care
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Household Supplies')">
+                                    Household Supplies
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pantry -->
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Pantry Items
+                    </button>
+                </h5>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <button (click)="getItems('Beverages')">
+                                    Beverages
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Canned Food')">
+                                    Canned Food
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Cooking and Baking Needs')">
+                                    Cooking and Baking Needs
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Pasta and Noodles')">
+                                    Pasta and Noodles
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Snacks')">
+                                    Snacks
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Perishables -->
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Perishables
+                    </button>
+                </h5>
+
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+
+                        <ul>
+                            <li>
+                                <button (click)="getItems('Bread and Bakery')">
+                                    Bread and Bakery
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Cheese')">
+                                    Cheese
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Dairy and Eggs')">
+                                    Dairy and Eggs
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Frozen Foods')">
+                                    Frozen Foods
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Produce -->
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#Produce"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Produce
+                    </button>
+                </h5>
+
+                <div id="Produce" class="collapse" aria-labelledby="Produce" data-parent="#accordion">
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <button (click)="getItems('Fruits')">
+                                    Fruits
+                                </button>
+                            </li>
+                            <li>
+                                <button (click)="getItems('Vegetables')">
+                                    Vegetables
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- rubric26 Clicking on a subcategory should repopulate the grid of products with items from the subcategory that was just clicked. -->
+        <div class="col-8">
+            <!-- rubric20 The user shall see a grid that is populated with the products of the selected category -->
+            <div class="col-3" *ngFor="let item of itemsFound.items">
+                <!-- rubric23 Each grid cell shall have an image of the product displayed -->
+                <!-- rubric31 If the user clicks on a product image within a grid cell, they should be taken to a product page that is populated with the details of the clicked product -->
+                <a routerLink="/product/{{item.name}}">
+                    <img src={{item.imagelink}} alt="item picture">
+                </a>
+                <!-- rubric21 Each grid cell shall have the name of the product displayed -->
+                <!-- rubric22 Each grid cell shall have the price of the product displayed -->
+                <!-- rubric32 If the user clicks on a product name within a grid cell, they should be taken to a product page
+                that is populated with the details of the clicked product -->
+                <p> <a routerLink="/product/{{item.name}}">
+                        Name: {{item.name}}
+                    </a>Price: {{item.price}}</p>
+                <!-- rubric24 Each grid cell shall have a button labeled “Add” -->
+                <button (click)="addToCart(item)">Add</button>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-        <label class="form-check-label" for="invalidCheck2">
-          Agree to terms and conditions
-        </label>
-      </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </form>
+</div>
