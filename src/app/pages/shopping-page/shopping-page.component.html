@@ -4,11 +4,24 @@
         <div class="col-2">
             <!-- rubric15 The user shall see a section in the controls bar that displays the selected category name -->
             <!-- rubric27 Clicking on a subcategory should change the name of the selected category in the controls bar -->
-            Showing {{itemsTotal}} items in {{itemCategory}}
+            <!-- rubric16 The user shall see a section in the controls bar that displays the number of items shown out of the total number of items in the selected category -->
+            <!-- rubric28  -->
+            Showing {{itemsFound.items.length}} / {{itemsTotal}} items in {{itemCategory}}
         </div>
         <div class="col-3">
+            <!-- rubric17 The user shall see a toggle switch labeled “In Stock Only” in the controls bar -->
             <input type="checkbox" (change)="onStock()" id="onStock" [(ngModel)]="forStock">
             <label for="onStock">Only on Stock</label>
+        </div>
+
+        <div class="col-3">
+            <!-- rubric18 The user shall see a dropdown list labeled “Sort By” that has the following options: (None, Price, Alphabetical, Rating) in the controls bar -->
+            <select>
+                <option value="none">None</option>
+                <option value="Price">Price</option>
+                <option value="Alphabetical">Alphabetical</option>
+                <option value="Rating">Rating</option>
+            </select>
         </div>
     </div>
     <div class="row">
@@ -171,6 +184,7 @@
                 <p> <a routerLink="/product/{{item.name}}">
                         Name: {{item.name}}
                     </a>Price: {{item.price}}</p>
+                <p>Stock: {{item.stock}}</p>
                 <!-- rubric24 Each grid cell shall have a button labeled “Add” -->
                 <button (click)="addToCart(item)">Add</button>
             </div>

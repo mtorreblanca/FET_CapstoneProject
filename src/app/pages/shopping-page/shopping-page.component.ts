@@ -11,7 +11,7 @@ export class ShoppingPageComponent implements OnInit {
   itemCategory = 'Baby Care';
   itemsFound: any;
   itemsTotal: any;
-  itesmStock: any;
+  itemsStock: any = [];
   forStock: false;
   constructor(private data: ShoppingDataService) { }
 
@@ -29,6 +29,9 @@ export class ShoppingPageComponent implements OnInit {
           if (find) {
             this.itemsFound = find;
             this.itemsTotal = this.itemsFound.items.length;
+            if (this.forStock) {
+              this.onStock();
+            }
           }
         });
       });
@@ -47,9 +50,16 @@ export class ShoppingPageComponent implements OnInit {
 
   onStock() {
     if (this.forStock === false) {
-      console.log('hi im false');
+      this.getItems(this.itemCategory);
     } else {
-      console.log('hi! im true!');
+      this.itemsStock = [];
+      this.itemsFound.items.forEach(item => {
+        if (item.stock > 0) {
+          this.itemsStock.push(item);
+          // rubric29 If the “In Stock Only” toggle is checked, only items that are in stock should be shown in the products grid.
+          this.itemsFound.items = this.itemsStock;
+        }
+      });
     }
   }
 }
