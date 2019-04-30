@@ -125,3 +125,14 @@
   width: 50%;
 
 }
+
+.btn-shop{
+  text-align: center;
+  margin: 10px;
+}
+.shop-all{
+  color: black;
+  background-color: #717171;
+  border: none;
+  font-size: 2rem;
+}
